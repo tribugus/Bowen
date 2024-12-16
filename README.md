@@ -1,2 +1,2 @@
-# Bowen
-Sistema Bowen ( tareas )
+# escuela-laravel
+proyecto de escuela en laravel

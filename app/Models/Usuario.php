@@ -2,32 +2,43 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Usuario extends Model
+
+class Usuario extends Authenticatable
 {
-    use HasFactory;
 
-    // Definir el nombre de la tabla si no sigue la convención plural (por defecto se espera 'usuarios')
-    protected $table = 'usuario';
 
-    // Definir las columnas que pueden ser asignadas masivamente
-    protected $fillable = [
-        'nikname',    // Apodo del usuario
-        'email',      // Correo electrónico del usuario
-        'password',   // Contraseña del usuario
-    ];
+    protected $table = 'tw_usuario'; // Asegúrate de que el nombre de la tabla sea correcto
 
-    // Si deseas ocultar ciertos atributos cuando se convierte el modelo a un arreglo o JSON, puedes definirlo aquí
-    protected $hidden = [
-        'password',   // Ocultar la contraseña por razones de seguridad
-        'remember_token', // Ocultar el token de "recordarme"
-    ];
+    protected $fillable = ['activo','telefono','roll_id','nombre','ap_pat','ap_mat','correo','contrasena'];  // Asegúrate de que los campos estén en $fillable
 
-    // Si necesitas que la fecha de creación o actualización esté en otro formato, puedes especificarlo aquí
-    protected $dates = [
-        'created_at',
-        'updated_at',
-    ];
+    protected $hidden = ['contrasena'];  // Ocultar la contraseña al serializar el modelo
+
+    // Personaliza el nombre del campo 'correo' si no es 'email'
+    public function getAuthIdentifierName()
+    {
+        return 'correo';
+    }
+
+    // Personaliza el campo 'contrasena' si no es 'password'
+    public function getAuthPassword()
+    {
+        return $this->contrasena;
+    }
+
+
+    public function roll()
+    {
+        return $this->hasOne(Roll::class,'id','roll_id');
+    }
+
+    public function profesor()
+    {
+        return $this->hasOne(Profesor::class,'usuario_id','id');
+    }
+
+
+
+
 }
