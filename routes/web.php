@@ -7,5 +7,10 @@ use Illuminate\Http\Request;
 
 
 Route::get('/', function () {
-    return response()->json(['message' => 'Ruta /api/test está funcionando correctamente']);
+    return 1;
+});
+
+
+Route::get('/2', function () {
+    return 1;
 });
