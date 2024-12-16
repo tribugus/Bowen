@@ -14,7 +14,7 @@ class CreateListaTable extends Migration
     public function up()
     {
         Schema::create('lista', function (Blueprint $table) {
-            $table->id('lista_id');  // Identificador único de la lista, auto incremento
+            $table->id();  // Identificador único de la lista, auto incremento
             $table->unsignedBigInteger('usuario_id');  // Relación con el usuario (si usas un sistema de usuarios)
             $table->string('nombre');  // Nombre de la lista
             $table->text('descripcion')->nullable();  // Descripción de la lista (opcional)
