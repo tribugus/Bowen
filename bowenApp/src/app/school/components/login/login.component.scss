@@ -1,0 +1,37 @@
+.body {
+    background: rgb(224, 224, 224) !important;
+}
+.main-div{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    max-width: 200px;
+    margin: 20px 70px 20px 70px;
+}
+
+
+.mat-form-field {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+
+.mat-card-content{
+    padding: 0px 25px;
+}
+
+.mat-card-actions{
+    padding: 0px 30px;
+}
+
+.mat-raised-button{
+    width: 100%;
+}
+
+
+

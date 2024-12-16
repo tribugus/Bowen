@@ -1,0 +1,123 @@
+
+
+<!-- <script>var jse = true; </script> -->
+<app-header></app-header>
+
+
+
+<!--
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+  <span>
+    <button mat-button routerLink="/">XXX</button>
+    <button mat-button routerLink="/"><mat-icon>home</mat-icon></button>
+  </span>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button mat-button routerLink="/login" >
+      <mat-icon>power_settings_new</mat-icon>
+      Login
+    </button>
+    <button mat-button >
+      <mat-icon>exit_to_app</mat-icon>
+      Logout
+    </button>
+    <button mat-button routerLink="/game">
+      <mat-icon>gamepad</mat-icon>
+      Play
+    </button>
+  </div>
+  <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-menu x-position="before" #menu="matMenu">
+  <button mat-menu-item routerLink="/">
+    <mat-icon>home</mat-icon>
+    Home
+  </button>
+  <button mat-menu-item routerLink="/game">
+    <mat-icon>gamepad</mat-icon>
+    Play
+  </button>
+  <button mat-menu-item routerLink="/login">
+    <mat-icon>power_settings_new</mat-icon>
+    Login
+  </button>
+  <button mat-menu-item >
+    <mat-icon>exit_to_app</mat-icon>
+    Logout
+  </button>
+</mat-menu>
+-->
+
+  
+<div class="body">
+  
+  <!-- Classes main-div and example-card are catagorized in .css file -->
+  <div class="main-div">
+  
+    <mat-card class="example-card">
+      
+      <div class="login-box-header">
+        
+          <img class="img-responsive logo" src="assets/img/logo.png">
+      
+      </div>
+      <mat-card-content>
+       
+        <p>
+          <mat-form-field color="warn">
+            <mat-label>Usuario : </mat-label>
+            <input matInput placeholder="example" (ngModel)="user" (change)="cambiar($event,'user')" 
+            (keyup.enter)="addToKeywords()" value="{{user}}">
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-hint>Ingrese su usuario.</mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field color="warn">
+            <mat-label>Password : </mat-label>
+            <input matInput placeholder="***********" type="password" (ngModel)="password" (change)="cambiar($event,'password')"
+             (keyup.enter)="addToKeywords()" value="{{password}}">
+            <mat-icon matSuffix>https</mat-icon>
+            <mat-hint>Ingrese su contraseña.</mat-hint>
+          </mat-form-field>
+        </p>
+
+
+        
+        <!-- <mat-spinner></mat-spinner> -->
+      </mat-card-content>
+      <mat-card-actions>
+
+        <button mat-raised-button  color="warn" (click)="loginUser()" >Login </button>
+        <br><br><br>
+
+
+        <!-- <button mat-raised-button (click)="loader.show()">
+            Show Loader
+        </button>
+        <button mat-raised-button (click)="loader.hide()">
+            Hide Loader
+        </button>-->
+
+        
+      </mat-card-actions>
+    </mat-card>
+    
+    
+   
+  </div>
+  
+
+</div>
+
+
+
+
+
+
+<app-footer></app-footer>
+
+<div class="overlay"  *ngIf="loading$ | async">
+  <mat-progress-spinner [mode]="'indeterminate'" [color]="'Warn'" [strokeWidth]="3" ></mat-progress-spinner>
+</div>
